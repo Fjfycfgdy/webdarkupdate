@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>WebDark | آپدیت نسخه ۱.۱ Beta</title>
+    <!-- فونت فارسی وزیرمتن -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at 10% 20%, #0a0f1f 0%, #010101 100%);
+            color: #eef3ff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(80, 150, 255, 0.08) 1.2px, transparent 1.2px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #C0F2FF, #7C9AFF, #A45EE5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            display: inline-block;
+            text-shadow: 0 0 15px rgba(100, 100, 255, 0.3);
+        }
+
+        .logo span {
+            font-weight: 500;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #b9c8ff;
+            font-size: 1.8rem;
+        }
+
+        .logo-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .logo-images img {
+            height: 70px;
+            width: auto;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.7));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-images img:hover {
+            transform: scale(1.05);
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: #a3b5e6;
+            margin-top: 0.5rem;
+            border-top: 1px dashed #2c3e6e;
+            display: inline-block;
+            padding-top: 0.6rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            background: linear-gradient(to left, #E0E7FF, #A9C9FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero-desc {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: #cfdef5;
+            background: rgba(20, 25, 55, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            display: inline-block;
+            border: 1px solid rgba(100, 130, 250, 0.3);
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0 3.5rem;
+        }
+
+        .feature-card {
+            background: rgba(18, 25, 55, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            padding: 1.8rem 1.5rem;
+            width: 280px;
+            text-align: center;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: #5f7ef2;
+            background: rgba(30, 40, 80, 0.8);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            color: #c6dcff;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #b9ceff;
+        }
+
+        .description-section {
+            background: linear-gradient(145deg, rgba(10, 20, 45, 0.7), rgba(0, 0, 0, 0.6));
+            border-radius: 2rem;
+            padding: 2rem 2rem;
+            margin: 2rem 0 2.5rem;
+            border: 1px solid #2a3a6e;
+            backdrop-filter: blur(5px);
+        }
+
+        .description-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            border-right: 5px solid #5f8aff;
+            padding-right: 1rem;
+            margin-bottom: 1.8rem;
+            color: #eef4ff;
+        }
+
+        .description-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .description-text p {
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            background: rgba(95, 138, 255, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 12px;
+            font-weight: 500;
+            color: #bbd9ff;
+        }
+
+        .quote-comparison {
+            background: #0e1a2f;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.8rem;
+            margin-top: 1rem;
+            border-right: 4px solid #ff6b6b;
+            font-style: normal;
+            color: #f0caca;
+        }
+
+        .quote-comparison strong {
+            color: #ff9e9e;
+        }
+
+        .btn-wrapper {
+            text-align: center;
+            margin: 3rem 0 2rem;
+        }
+
+        .btn-site {
+            display: inline-block;
+            background: linear-gradient(95deg, #3b6eff, #9147ff);
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 700;
+            padding: 1rem 2.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: 0.25s ease;
+            box-shadow: 0 12px 25px -8px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 1px;
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-site:hover {
+            transform: scale(1.03);
+            background: linear-gradient(95deg, #2c5ef0, #ac6eff);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.7);
+            border-color: #b0c6ff;
+        }
+
+        .btn-site:active {
+            transform: scale(0.98);
+        }
+
+        .btn-site .icon-dl {
+            font-size: 2rem;
+            vertical-align: middle;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #1f2f4e;
+            font-size: 0.85rem;
+            color: #7c8eb0;
+        }
+
+        .footer a {
+            color: #7b9aff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: #aec0ff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .feature-card {
+                width: 100%;
+                max-width: 320px;
+            }
+            .btn-site {
+                font-size: 1.3rem;
+                padding: 0.8rem 2rem;
+            }
+            .description-section h2 {
+                font-size: 1.6rem;
+            }
+            .logo {
+                font-size: 2rem;
+            }
+            .logo-images img {
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-desc {
+                font-size: 0.9rem;
+                padding: 0.8rem 1rem;
+            }
+            .description-text p {
+                font-size: 0.95rem;
+            }
+        }
+
+        .feature-card, .btn-site {
+            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="brand">
+        <div class="logo">
+            WebDark <span>|</span> Persian
+        </div>
+        <div class="logo-images">
+            <img src="oraxel.png" alt="oraxel">
+            <img src="webdark.png" alt="WebDark">
+        </div>
+        <div class="tagline">نسخه ۱.۱ Beta · آپدیت جدید · بهبود عملکرد و رفع باگ‌ها</div>
+    </div>
+
+    <div class="hero">
+        <h1>📲 آپدیت WebDark Persian منتشر شد!</h1>
+        <div class="hero-desc">
+            ⚡ <strong class="highlight">نسخه ۱.۱ Beta</strong> — با بهینه‌سازی موتور آزمون، سرعت بیشتر در تبدیل PDF، اصلاح خطاهای ذخیره‌سازی کلیدها و بهبود امنیت ارتباطات
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>سرعت بالاتر</h3>
+            <p>تبدیل و نمایش صفحات PDF با سرعتی بیش از ۴۰٪ نسبت به نسخه قبل</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🧩</div>
+            <h3>رفع باگ کلیدها</h3>
+            <p>ذخیره‌سازی صحیح پاسخ‌ها در حافظه داخلی و جلوگیری از پاک شدن تصادفی</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>نمره منفی دقیق</h3>
+            <p>محاسبه نمره خام با در نظر گرفتن نمره منفی بر اساس تنظیمات آزمون</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔐</div>
+            <h3>امنیت ارتقا یافته</h3>
+            <p>ارتباط رمزگذاری شده با سرور و مدیریت بهتر جلسات کاربران</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>سازگاری با اندروید ۱۴</h3>
+            <p>پشتیبانی کامل از جدیدترین نسخه‌های اندروید و رفع مشکلات مجوزها</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔄</div>
+            <h3>همگام‌سازی خودکار</h3>
+            <p>بروزرسانی خودکار زمان آزمون‌ها و نمایش به‌روز در لیست فعال</p>
+        </div>
+    </div>
+
+    <div class="description-section">
+        <h2>📦 جزئیات کامل آپدیت ۱.۱ Beta</h2>
+        <div class="description-text">
+            <p>
+                <strong class="highlight">WebDark Persian نسخه ۱.۱ Beta</strong> با هدف <strong>بهبود تجربه کاربری</strong> و رفع مشکلات گزارش‌شده توسط کاربران گرامی منتشر شده است. در این نسخه، <strong class="highlight">موتور پردازش آزمون</strong> به طور کامل بازنویسی شده و سرعت بارگذاری سوالات و تصاویر PDF به شکل محسوسی افزایش یافته است.
+            </p>
+            <p>
+                📌 مهم‌ترین تغییرات: اصلاح خطای <strong>ذخیره‌سازی کلیدهای پاسخ</strong> که در نسخه‌های قبلی باعث از دست رفتن برخی پاسخ‌ها می‌شد. همچنین الگوریتم <strong>محاسبه نمره منفی</strong> دقیق‌تر شده و نتایج آزمون با دقت بیشتری نمایش داده می‌شوند. ارتباط با سرور از طریق پروتکل امن‌تر انجام شده و احتمال قطع ارتباط به حداقل رسیده است.
+            </p>
+            <p>
+                🧠 در بخش مدیریت آزمون‌ها، <strong class="highlight">لیست آزمون‌های فعال</strong> سریع‌تر بارگذاری می‌شود و فیلتر هوشمند زمان، آزمون‌های غیرفعال را به‌درستی مخفی می‌کند. همچنین <strong class="highlight">پنل کاربری</strong> با طراحی جدید و دسترسی سریع به بخش‌های مختلف همراه شده است.
+            </p>
+            <div class="quote-comparison">
+                ⚠️ <strong>توجه ویژه:</strong> این آپدیت <strong>برای مدارس</strong> شامل نمی‌شود و صرفاً برای کاربران عمومی طراحی شده است. 
+                در صورت استفاده در محیط آموزشی، ممکن است برخی قابلیت‌ها با محدودیت مواجه شوند.
+            </div>
+            <p>
+                🎯 برای دریافت آخرین نسخه، کافیست روی دکمه <strong class="highlight">دانلود آپدیت</strong> کلیک کنید. فایل APK به‌صورت مستقیم دانلود خواهد شد. پس از نصب، تمام داده‌های قبلی شما حفظ می‌شود و نیازی به تنظیم مجدد نیست. 
+                <br>
+                <span style="color:#9aafd6;">📅 تاریخ انتشار: ۱۴۰۵/۰۵/۰۶ · حجم فایل: ~۱۸ مگابایت</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="btn-wrapper">
+        <a href="App.apk" class="btn-site" download>
+            <span class="icon-dl">⬇️</span> دانلود آپدیت (App.apk) <span style="font-size:1.4rem;">📦</span>
+        </a>
+        <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.8;">فایل نصب مستقیم · نسخه بتا ۱.۱</p>
+    </div>
+
+    <div class="footer">
+        <p>© ۲۰۲۶ WebDark Persian — طراحی شده با Github برای کاربران عمومی | نسخه ۱.۱ Beta</p>
+        <p style="margin-top: 0.3rem;">
+            🌙 <a href="#" onclick="event.preventDefault(); alert('ایمیل پشتیبانی: webdark@support.ir (نمادین)');">پشتیبانی</a> &nbsp;|&nbsp; 
+            <a href="https://github.com/your-repo/webdark" target="_blank">مخزن گیت‌هاب</a> &nbsp;|&nbsp; 
+            <span>📋 کد منبع باز</span>
+        </p>
+    </div>
+</div>
+</body>
+</html>
